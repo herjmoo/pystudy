@@ -49,7 +49,7 @@ class Baseball:
         while check_duplication(ans):
             ans = ""
             for i in range(self.ans_len):
-                ans += str(int(random.random() * 10))
+                ans += str(random.randint(0, 9))
 
         guess = ""
         tries = 0
