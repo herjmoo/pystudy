@@ -55,9 +55,9 @@ if n == "1":
     b.start()
 
 elif n == "2":
+    print("New game is developing, please try the next version later")
+
+elif n == "3":
     print("let's play RockPaperScissors!")
     g=RockPaperScissors()
     g.start()
-
-elif n == "3":
-    print("New game is developing, please try the next version later")
