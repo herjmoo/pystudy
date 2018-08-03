@@ -22,9 +22,10 @@
 ################################################################################
 
 from game.baseball import *
+from game.GoGoogle_Baseball import *
 
 print("1. Baseball")
-print("2. (coming soon)")
+print("2. GoGoogle Baseball")
 print("3. (coming soon)")
 n = input("Select the game: ")
 
@@ -54,7 +55,9 @@ if n == "1":
     b.start()
 
 elif n == "2":
-    print("New game is developing, please try the next version later")
+    print("Play GoGoogle Baseball")
+    b = GoGoogle()
+
 
 elif n == "3":
     print("New game is developing, please try the next version later")
