@@ -64,4 +64,4 @@ class GoGoogle:
             print("정답입니다. %d번만에 맞추셨습니다" % count)
             if count == 1:
                 print("천재인듯?")
-test = GoGoogle()
+#test = GoGoogle()
