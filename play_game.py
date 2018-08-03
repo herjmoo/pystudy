@@ -22,6 +22,7 @@
 ################################################################################
 
 from game.baseball import *
+from game.rps import *
 from game.GoGoogle_Baseball import *
 
 print("1. Baseball")
@@ -60,4 +61,6 @@ elif n == "2":
 
 
 elif n == "3":
-    print("New game is developing, please try the next version later")
+    print("let's play RockPaperScissors!")
+    g=RockPaperScissors()
+    g.start()
