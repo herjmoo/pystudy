@@ -1,5 +1,5 @@
 ################################################################################
-# play_game.py
+# play_data.py
 # Copyright (c) 2018, PyStudy-GoGoogle
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,46 +21,26 @@
 # SOFTWARE.
 ################################################################################
 
-from game.baseball import *
-from game.rps import *
-from game.GoGoogle_Baseball import *
+import pandas as pd
+from data_analysis.data import *
 
-print("1. Baseball")
-print("2. GoGoogle Baseball")
-print("3. (coming soon)")
-n = input("Select the game: ")
+print("1. Change H1 data from excel to panda")
+print("2. Change H1 data from csv to panda")
+print("3. Import H1 data from panda to panda")
+n = input("Select the function: ")
 
 if n == "1":
-    print("Baseball game configurations")
-    b = Baseball()
-
-    difficulty = input("Select the difficulty (Easy/Normal/Hard): ")
-    if difficulty == "Easy":
-        print("Difficulty is set to Easy")
-        b.setup_ans_len(3)
-        b.setup_try_limit(20)
-    elif difficulty == "Normal":
-        print("Difficulty is set to Normal")
-        b.setup_ans_len(3)
-        b.setup_try_limit(10)
-    elif difficulty == "Hard":
-        print("Difficulty is set to Hard")
-        b.setup_ans_len(3)
-        b.setup_try_limit(7)
-    else:
-        print("Unrecognizable difficulty")
-        print("Difficulty is set to Normal")
-        b.setup_ans_len(3)
-        b.setup_try_limit(10)
-
-    b.start()
+    cd = ChangeData()
+    cd.excel_to_panda("H-1B_Disclosure_Data_FY2018-Q3")
 
 elif n == "2":
-    print("Play GoGoogle Baseball")
-    b = GoGoogle()
-
+    cd = ChangeData()
+    cd.csv_to_panda("H-1B_Disclosure_Data_FY2018-Q3")
 
 elif n == "3":
-    print("let's play RockPaperScissors!")
-    g=RockPaperScissors()
-    g.start()
+    id = ImportData()
+    data = id.panda_to_panda("H-1B_Disclosure_Data_FY2018-Q3")
+    print(data.head(10))
+
+
+
