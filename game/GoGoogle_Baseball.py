@@ -15,7 +15,7 @@ class GoGoogle:
             a = random.randrange(1, 10)
             if a not in answer:
                 answer.append(a)
-        print(answer)
+        #print(answer)
 
         count = 0
         s = 0
