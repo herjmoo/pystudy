@@ -22,47 +22,32 @@
 ################################################################################
 
 import pandas as pd
-import pickle
+
+desired_width=320
+pd.set_option('display.width', desired_width)
+pd.set_option('display.max_columns',10)
 
 
-def to_panda(data, filename):
-    f = open(filename + ".panda", 'wb')
-    pickle.dump(data, f)
-    f.close()
-    return filename + ".panda"
+class ManageH1:
+    def __init__(self, data):
+        self.data = data
 
+    def print_all_data(self):
+        print(self.data)
 
-class ChangeData:
-    def excel_to_panda(self, filename):
-        try:
-            data = pd.read_excel(filename + ".xls")
-            new_filename = to_panda(data, filename)
-        except FileNotFoundError as e:
-            try:
-                data = pd.read_excel(filename + ".xlsx")
-                new_filename = to_panda(data, filename)
-            except FileNotFoundError as e:
-                print("ERROR: No excel file named " + filename + " found")
-                return ""
-
-        return new_filename
-
-    def csv_to_panda(self, filename):
-        try:
-            data = pd.read_csv(filename + ".csv")
-            new_filename = to_panda(data, filename)
-        except FileNotFoundError as e:
-            print("ERROR: No csv file named " + filename + " found")
-            return ""
-
-        return new_filename
-
-
-class ImportData:
-    def panda_to_panda(self, filename):
-        try:
-            f = open(filename + ".panda", 'rb')
-            return pickle.load(f)
-        except OSError as e:
-            print("ERROR: No panda file named " + filename + " found")
-            return pd.DataFrame({})
+    def search_by_employer(self, name):
+        if self.data.empty:
+            print("No data loaded")
+            return
+        res = self.data['EMPLOYER_NAME'] == name
+        new_data = self.data[res]
+        print(new_data[['JOB_TITLE',
+                       'WORKSITE_CITY',
+                       'WORKSITE_STATE',
+                       'EMPLOYER_CITY',
+                       'EMPLOYER_STATE',
+                       'PREVAILING_WAGE',
+                       'PW_WAGE_LEVEL',
+                       'WAGE_RATE_OF_PAY_FROM',
+                       'WAGE_RATE_OF_PAY_TO',
+                       'WAGE_UNIT_OF_PAY']])
