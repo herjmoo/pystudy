@@ -84,6 +84,10 @@ class Menu:
                 m.print_all_data()
             elif n == 2:
                 m.search_by_employer(input("Enter employer name: "))
+            elif n == 3:
+                m.search_by_jobtitle(input("Enter job title: "))
+            elif n == 4:
+                m.search_by_city(input("Enter city name: "))
             else:
                 print("ERROR: Undefined menu")
         else:
@@ -109,6 +113,8 @@ class Menu:
             self.print_string("0. Back to previous menu")
             self.print_string("1. Print all data")
             self.print_string("2. Search data by employer name")
+            self.print_string("3. Search data by job title")
+            self.print_string("4. Search data by city")
         else:
             self.print_string("ERROR: Undefined menu position")
 

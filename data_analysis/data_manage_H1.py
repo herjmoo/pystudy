@@ -51,3 +51,37 @@ class ManageH1:
                        'WAGE_RATE_OF_PAY_FROM',
                        'WAGE_RATE_OF_PAY_TO',
                        'WAGE_UNIT_OF_PAY']])
+
+    def search_by_jobtitle(self, name):
+        if self.data.empty:
+            print("No data loaded")
+            return
+        res = self.data['JOB_TITLE'] == name
+        new_data = self.data[res]
+        print(new_data[['JOB_TITLE',
+                        'WORKSITE_CITY',
+                        'WORKSITE_STATE',
+                        'EMPLOYER_CITY',
+                        'EMPLOYER_STATE',
+                        'PREVAILING_WAGE',
+                        'PW_WAGE_LEVEL',
+                        'WAGE_RATE_OF_PAY_FROM',
+                        'WAGE_RATE_OF_PAY_TO',
+                        'WAGE_UNIT_OF_PAY']])
+
+    def search_by_city(self, name):
+        if self.data.empty:
+            print("No data loaded")
+            return
+        res = self.data['WORKSITE_CITY'] == name
+        new_data = self.data[res]
+        print(new_data[['JOB_TITLE',
+                        'WORKSITE_CITY',
+                        'WORKSITE_STATE',
+                        'EMPLOYER_CITY',
+                        'EMPLOYER_STATE',
+                        'PREVAILING_WAGE',
+                        'PW_WAGE_LEVEL',
+                        'WAGE_RATE_OF_PAY_FROM',
+                        'WAGE_RATE_OF_PAY_TO',
+                        'WAGE_UNIT_OF_PAY']])
