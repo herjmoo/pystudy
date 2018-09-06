@@ -41,6 +41,7 @@ class ManageH1:
             return
         res = self.data['EMPLOYER_NAME'] == name
         new_data = self.data[res]
+        self.wage_visualization(new_data['WAGE_RATE_OF_PAY_FROM'].tolist())
         print(new_data[['JOB_TITLE',
                        'WORKSITE_CITY',
                        'WORKSITE_STATE',
@@ -51,3 +52,26 @@ class ManageH1:
                        'WAGE_RATE_OF_PAY_FROM',
                        'WAGE_RATE_OF_PAY_TO',
                        'WAGE_UNIT_OF_PAY']])
+
+    def wage_visualization(self, wage):
+        NUM = wage
+        a = 0
+        HUN = 0
+        FIF = 0
+        TWN = 0
+        WOW = 0
+        while a < len(NUM):
+
+            if NUM[a] < 100000:
+                HUN += 1
+            elif NUM[a] <= 150000:
+                FIF += 1
+            elif NUM[a] <= 200000:
+                TWN += 1
+            elif NUM[a] > 200000:
+                WOW += 1
+            a += 1
+        print('* < 100k, 100 < @ <= 150k, 150k < # <= 200k, $ > 200k')
+        #print(round(100 * HUN / len(NUM)), round(100 * FIF / len(NUM)), round(100 * TWN / len(NUM)), round(100 * WOW / len(NUM)))
+        print('*' * round(100 * HUN / len(NUM))+'@' * round(100 * FIF / len(NUM))+'#' * round(100 * TWN / len(NUM))+'$' * round(100 * WOW / len(NUM)))
+
