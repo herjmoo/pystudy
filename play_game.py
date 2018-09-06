@@ -24,10 +24,12 @@
 from game.baseball import *
 from game.rps import *
 from game.GoGoogle_Baseball import *
+from game.GaeGame import *
 
 print("1. Baseball")
 print("2. GoGoogle Baseball")
 print("3. (coming soon)")
+print("4. Tic Tac Toe")
 n = input("Select the game: ")
 
 if n == "1":
@@ -64,3 +66,7 @@ elif n == "3":
     print("let's play RockPaperScissors!")
     g=RockPaperScissors()
     g.start()
+
+elif n == "4":
+    tic=Tic()
+    tic.run()
